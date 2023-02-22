@@ -187,8 +187,8 @@ resource "aws_autoscaling_group" "playq-asg" {
   depends_on = [aws_internet_gateway.playq-igw]
   health_check_type = "ELB"
   vpc_zone_identifier = [
-    aws_subnet.playqpriva.id,
-    aws_subnet.playqprivb.id
+    aws_subnet.playq-puba.id,
+    aws_subnet.playq-pubb.id
   ]
   target_group_arns = [aws_alb_target_group.playq-tg.arn]
   mixed_instances_policy {

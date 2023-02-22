@@ -72,7 +72,7 @@ resource "aws_alb" "playq-alb" {
 
 resource "aws_alb_listener" "playq-hw" {
   load_balancer_arn = aws_alb.playq-alb.arn
-  port              = "80"
+  port              = "8082"
   protocol          = "HTTP"
   default_action {
     type             = "forward"
@@ -103,7 +103,7 @@ resource "aws_alb_listener" "playq-response-500" {
 
     fixed_response {
       content_type = "text/plain"
-      message_body = "Oops! Let's try again"
+      message_body = "Oops! Let's try again! Default 500 :)"
       status_code  = "500"
     }
   }

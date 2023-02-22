@@ -185,7 +185,7 @@ resource "aws_autoscaling_group" "playq-asg" {
   min_size             = 1
   desired_capacity     = 2
   depends_on = [aws_internet_gateway.playq-igw]
-  health_check_type = "ELB"
+  health_check_type = "EC2"
   vpc_zone_identifier = [
     aws_subnet.playq-puba.id,
     aws_subnet.playq-pubb.id
